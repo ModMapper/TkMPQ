@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{08AD97D2-8052-4AF6-AB2B-6FDF0E09525D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TkMPQLib</RootNamespace>
+    <AssemblyName>TkMPQLib</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\Release\TkMPQLib.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="DataTypes.cs" />
+    <Compile Include="Functions\Addition.cs" />
+    <Compile Include="Functions\Compact.cs" />
+    <Compile Include="Functions\FindFile.cs" />
+    <Compile Include="Functions\General.cs" />
+    <Compile Include="Functions\ReadFile.cs" />
+    <Compile Include="Functions\WriteFile.cs" />
+    <Compile Include="MPQReader.cs" />
+    <Compile Include="MPQWriter.cs" />
+    <Compile Include="MPQ\Data\Cluster.cs" />
+    <Compile Include="MPQ\Data\Compress.cs" />
+    <Compile Include="MPQ\Data\Raw.cs" />
+    <Compile Include="MPQ\Data\Sector.cs" />
+    <Compile Include="MPQ\Encryption.cs" />
+    <Compile Include="MPQ\Formats\BlockTable.cs" />
+    <Compile Include="MPQ\Formats\DataTypes.cs" />
+    <Compile Include="MPQ\Formats\HashTable.cs" />
+    <Compile Include="MPQ\Listfiles.cs" />
+    <Compile Include="MPQ\MPQData.cs" />
+    <Compile Include="MPQ\Wave.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TkComp\Compression\ADPCM.cs" />
+    <Compile Include="TkComp\Compression\BZip2\BZip2.cs" />
+    <Compile Include="TkComp\Compression\Huffman\Huffman.cs" />
+    <Compile Include="TkComp\Compression\Huffman\HuffmanTree.cs" />
+    <Compile Include="TkComp\Compression\LZMA\CRC.cs" />
+    <Compile Include="TkComp\Compression\LZMA\ICoder.cs" />
+    <Compile Include="TkComp\Compression\LZMA\IMatchFinder.cs" />
+    <Compile Include="TkComp\Compression\LZMA\LzBinTree.cs" />
+    <Compile Include="TkComp\Compression\LZMA\LzInWindow.cs" />
+    <Compile Include="TkComp\Compression\LZMA\LZMA.cs" />
+    <Compile Include="TkComp\Compression\LZMA\LzmaBase.cs" />
+    <Compile Include="TkComp\Compression\LZMA\LzmaDecoder.cs" />
+    <Compile Include="TkComp\Compression\LZMA\LzmaEncoder.cs" />
+    <Compile Include="TkComp\Compression\LZMA\LzOutWindow.cs" />
+    <Compile Include="TkComp\Compression\LZMA\RangeCoder.cs" />
+    <Compile Include="TkComp\Compression\LZMA\RangeCoderBit.cs" />
+    <Compile Include="TkComp\Compression\LZMA\RangeCoderBitTree.cs" />
+    <Compile Include="TkComp\Compression\PkLib\Constants.cs" />
+    <Compile Include="TkComp\Compression\PkLib\Explode.cs" />
+    <Compile Include="TkComp\Compression\PkLib\Implode.cs" />
+    <Compile Include="TkComp\Compression\PkLib\PkLib.cs" />
+    <Compile Include="TkComp\Compression\Sparse.cs" />
+    <Compile Include="TkComp\Compression\zlib\zlib.cs" />
+    <Compile Include="TkComp\FixedStream\FixedStream.cs" />
+    <Compile Include="TkComp\FixedStream\FixedWarpper.cs" />
+    <Compile Include="TkComp\TkComp.cs" />
+    <Compile Include="TkLib\Memory.cs" />
+    <Compile Include="TkLib\TkStream.cs" />
+    <Compile Include="TkMPQ.cs" />
+    <Compile Include="TkMPQInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="SharpCompress, Version=0.24.0.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpCompress.0.24.0\lib\net35\SharpCompress.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
